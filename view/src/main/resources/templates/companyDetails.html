@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>CompanyManagement Software Inc.</title>
+</head>
+<body>
+	<div style="margin-left: 70px;">
+		<h1>Company Management Portal - Details</h1>
+		<form action="#" th:action="@{/companies}" th:object="${company}" method="post">
+			<p>ID: <input type="text" th:field="*{id}" /></p>
+			<p>Name: <input type="text" th:field="*{name}" /></p>
+			<p>Ort: <input type="text" th:field="*{location}" /></p>
+			<p>Telefon: <input type="text" th:field="*{phone}" /></p>
+			<p><input type="submit" value="Submit" />&nbsp;<input type="reset" value="Reset" />
+		</form>
+	</div>
+</body>
+</html>

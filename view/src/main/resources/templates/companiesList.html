@@ -5,10 +5,37 @@
 <title>CompanyManagement Software Inc.</title>
 </head>
 <body>
-	<h1>Welcome to our cool Company Management Portal</h1>
-	
-	<p th:text="${welcome}">Welcome to our grocery store!</p>
-	
-	<p>Today is: <span th:text="${today}">13 February 2011</span></p>
+	<center>
+		<h1>Welcome to our cool Company Management Portal</h1>
+
+		<p th:text="${welcome}">Welcome to our grocery store!</p>
+
+		<p>
+			Today is: <span th:text="${today}">13 February 2011</span>
+		</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Ort</th>
+					<th>Telefon</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${companies.empty}">
+					<td colspan="5">Keine Daten gefunden</td>
+				</tr>
+				<tr th:each="company : ${companies}">
+					<td><span th:text="${company.name}"> Name </span></td>
+					<td><span th:text="${company.location}"> Ort </span></td>
+					<td><span th:text="${company.phone}"> Telefon </span></td>
+					<td><span><a th:href="@{/companies/{id}(id = ${company.id})}">Details</a></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</center>
 </body>
 </html>
