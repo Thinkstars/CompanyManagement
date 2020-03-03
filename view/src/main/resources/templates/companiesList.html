@@ -22,17 +22,21 @@
 					<th>Telefon</th>
 					<th></th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:if="${companies.empty}">
-					<td colspan="5">Keine Daten gefunden</td>
+					<td colspan="6">Keine Daten gefunden</td>
 				</tr>
 				<tr th:each="company : ${companies}">
 					<td><span th:text="${company.name}"> Name </span></td>
 					<td><span th:text="${company.location}"> Ort </span></td>
 					<td><span th:text="${company.phone}"> Telefon </span></td>
 					<td><span><a th:href="@{/companies/{id}(id = ${company.id})}">Details</a></span></td>
+					<td>
+						<td><span><a th:href="@{/companies/{id}(id = ${company.id}, action=delete)}">Drop</a></span></td>
+					</td>
 				</tr>
 			</tbody>
 		</table>
