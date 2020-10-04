@@ -4,17 +4,21 @@
 <meta charset="ISO-8859-1">
 <title>CompanyManagement Software Inc.</title>
 </head>
-<body>
-	<center>
+<body style="text-align:center;">
+	<div style="text-align: center;">
 		<h1>Welcome to our cool Company Management Portal</h1>
 
-		<p th:text="${welcome}">Welcome to our grocery store!</p>
+		<p th:text="${welcome}">Willkommen Text!</p>
 
 		<p>
-			Today is: <span th:text="${today}">13 February 2011</span>
+			Heute ist: <span th:text="${today}">13 February 2011</span>
 		</p>
 
-		<table>
+		<p>
+			Neue Firma anlegen: <a th:href="@{/companies/new}">Hinzuf&uuml;gen</a>
+		</p>
+
+		<table align="center">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -34,12 +38,10 @@
 					<td><span th:text="${company.location}"> Ort </span></td>
 					<td><span th:text="${company.phone}"> Telefon </span></td>
 					<td><span><a th:href="@{/companies/{id}(id = ${company.id})}">Details</a></span></td>
-					<td>
-						<td><span><a th:href="@{/companies/{id}(id = ${company.id}, action=delete)}">Drop</a></span></td>
-					</td>
+					<td><span><a th:href="@{/companies/{id}(id = ${company.id}, action=delete)}">Drop</a></span></td>
 				</tr>
 			</tbody>
 		</table>
-	</center>
+	</div>
 </body>
 </html>

@@ -13,13 +13,25 @@ import com.accenture.companymanagement.persistance.CompaniesRepository;
 @Service
 public class CompanyService {
 
-	@Autowired
+//	@Autowired
 	private CompaniesRepository repository;
 
+//	@Autowired
+//	public CompanyService(CompaniesRepository repository) {
+//		super();
+//		this.repository = repository;
+//	}
+
+	@Autowired
+	public void setRepository(CompaniesRepository repository) {
+		this.repository = repository;
+	}
+		
 	public List<Company> fetchAllCompanies() {
 		return ObjectMapperUtils.mapAll(repository.findAll(), Company.class);
 	}
 	
+
 	public boolean saveCompanyInDB(final Company company) {
 		repository.save(ObjectMapperUtils.map(company, CompanyEntity.class));
 		
